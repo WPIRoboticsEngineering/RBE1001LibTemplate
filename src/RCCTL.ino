@@ -12,8 +12,8 @@
 
 
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
-Motor left_motor;
-Motor right_motor;
+LeftMotor left_motor;
+RightMotor right_motor;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
@@ -77,12 +77,7 @@ void setup() {
 		manager.loop();
 		delay(1);
 	}
-	Motor::allocateTimer(0); // used by the DC Motors
-	ESP32PWM::allocateTimer(1); // Used by servos
 
-	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
-	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
